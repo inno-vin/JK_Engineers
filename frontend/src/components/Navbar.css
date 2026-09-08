@@ -1,0 +1,149 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 24px 0;
+  transition: all var(--transition-smooth);
+  background-color: transparent;
+}
+
+.navbar.scrolled {
+  background-color: var(--primary-navy);
+  padding: 12px 0;
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  transition: height var(--transition-smooth);
+}
+
+.navbar.scrolled .logo {
+  height: 45px;
+}
+
+.logo-fallback {
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--bg-white);
+  letter-spacing: 1px;
+}
+
+.navbar:not(.scrolled) .logo-fallback {
+  color: var(--primary-navy);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-item {
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--primary-navy);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.navbar.scrolled .nav-item {
+  color: var(--text-light);
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-red);
+  transition: width var(--transition-fast);
+}
+
+.nav-item:hover {
+  color: var(--accent-red);
+}
+
+.navbar.scrolled .nav-item:hover {
+  color: var(--bg-white);
+}
+
+.navbar.scrolled .nav-item:hover::after {
+  background-color: var(--bg-white);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-navy);
+}
+
+.navbar.scrolled .mobile-menu-btn {
+  color: var(--bg-white);
+}
+
+@media (max-width: 1024px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-navy);
+    flex-direction: column;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-smooth), padding var(--transition-smooth);
+    gap: 0;
+  }
+
+  .nav-links.active {
+    max-height: 400px;
+    padding: 24px 0;
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav-item {
+    color: var(--bg-white) !important;
+    padding: 16px 24px;
+    display: block;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-item::after {
+    display: none;
+  }
+
+  .d-none-mobile {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+}
