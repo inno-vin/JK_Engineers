@@ -1,5 +1,10 @@
 # Environments
 .env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
 .venv
 env/
 venv/
@@ -13,6 +18,8 @@ __pycache__/
 *$py.class
 *.so
 backend/db.sqlite3
+staticfiles/
+backend/staticfiles/
 
 # Frontend (if not caught by frontend/.gitignore)
 node_modules/

@@ -34,7 +34,8 @@ const Contact = () => {
     setFeedback('');
 
     try {
-      const response = await fetch('http://localhost:8000/api/contact/', {
+      const apiBaseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/+$/, '');
+      const response = await fetch(`${apiBaseUrl}/api/contact/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
