@@ -167,13 +167,30 @@ if EMAIL_HOST:
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL_ORIGINS', 'True').lower() in ('true', '1', 'yes')
+CORS_ALLOWED_ORIGINS = [
+    'https://jk-engineers.vercel.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
 cors_allowed = os.environ.get('CORS_ALLOWED_ORIGINS', '')
 if cors_allowed:
-    CORS_ALLOWED_ORIGINS = [origin.strip() for origin in cors_allowed.split(',') if origin.strip()]
+    CORS_ALLOWED_ORIGINS.extend([origin.strip() for origin in cors_allowed.split(',') if origin.strip()])
 
 # CSRF trusted origins (for Vercel deployment)
-csrf_trusted = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://*.vercel.app,http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173')
-CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in csrf_trusted.split(',') if origin.strip()]
+CSRF_TRUSTED_ORIGINS = [
+    'https://jk-engineers.vercel.app',
+    'https://*.vercel.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+]
+csrf_trusted = os.environ.get('CSRF_TRUSTED_ORIGINS', '')
+if csrf_trusted:
+    CSRF_TRUSTED_ORIGINS.extend([origin.strip() for origin in csrf_trusted.split(',') if origin.strip()])
+
 
 # Production security headers
 if not DEBUG:
