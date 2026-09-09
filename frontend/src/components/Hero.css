@@ -1,131 +1,547 @@
-.hero {
+/* Cinematic Hero Section */
+.cinematic-hero {
   position: relative;
-  padding: 160px 0 100px;
   min-height: 100vh;
+  padding: 170px 0 110px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: var(--bg-light-grey);
+  background: linear-gradient(140deg, #030712 0%, #0B192C 48%, #0F172A 100%);
 }
 
-.hero-bg-accent {
+/* Dynamic Ambient Gradient Mesh & Orbs */
+.hero-ambient-mesh {
   position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 50%;
-  height: 120%;
-  background-color: var(--primary-navy);
-  transform: skewX(-15deg);
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
   z-index: 0;
-  opacity: 0.03;
 }
 
-.hero-container {
-  display: flex;
+.mesh-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: 0.55;
+  animation: float-mesh 14s ease-in-out infinite alternate;
+}
+
+.orb-red {
+  top: -100px;
+  right: -80px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.28) 0%, rgba(220, 38, 38, 0.04) 65%, transparent 100%);
+}
+
+.orb-slate {
+  bottom: -150px;
+  left: -100px;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(30, 41, 59, 0.6) 0%, rgba(11, 25, 44, 0.15) 70%, transparent 100%);
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
+}
+
+.orb-cyan {
+  top: 30%;
+  right: 35%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+  animation-duration: 22s;
+}
+
+@keyframes float-mesh {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -30px) scale(1.08); }
+  100% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* Ultra-Fine Engineering Grid Overlay (opacity-20) */
+.engineering-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 48px 48px, 48px 48px, 24px 24px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+}
+
+/* Layout Grid */
+.hero-layout-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
   align-items: center;
-  justify-content: space-between;
   gap: 60px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-.hero-content {
-  flex: 1;
-  max-width: 600px;
+.hero-narrative {
+  max-width: 660px;
 }
 
-.hero-buttons {
+/* Word-by-Word Text Reveal */
+.hero-cinema-heading {
+  font-size: clamp(38px, 5.2vw, 62px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.headline-row {
+  display: block;
+}
+
+.word-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  margin-right: 0.28em;
+  padding-bottom: 4px;
+}
+
+.word-text {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.word-white {
+  color: #FFFFFF;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.word-accent {
+  color: #EF4444;
+  text-shadow: 0 0 30px rgba(239, 68, 68, 0.55);
+}
+
+/* Subtitle */
+.hero-cinema-sub {
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: #CBD5E1;
+  margin-bottom: 36px;
+  max-width: 580px;
+}
+
+/* CTA Actions */
+.hero-actions-group {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  margin-bottom: 44px;
 }
 
-.hero-visual {
-  flex: 1;
-  position: relative;
+.hero-btn-glow {
+  padding: 15px 32px;
+  font-size: 15px;
 }
 
-.hero-image-wrapper {
+.hero-whatsapp-btn {
+  padding: 15px 28px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.hero-whatsapp-btn:hover {
+  border-color: rgba(34, 197, 94, 0.6);
+  box-shadow: 0 0 25px rgba(34, 197, 94, 0.3);
+}
+
+.whatsapp-icon {
+  color: #22C55E;
+}
+
+/* Metrics Bar */
+.cinema-metrics-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 22px;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.metric-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+.metric-accent-red {
+  color: #EF4444;
+  flex-shrink: 0;
+}
+
+.metric-divider-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Right Column: 3D Stage */
+.hero-stage-wrapper {
   position: relative;
-  border-radius: 8px;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-perspective-stage {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  transform-style: preserve-3d;
+  cursor: grab;
+}
+
+/* Glowing Neon Border Frame */
+.neon-border-frame {
+  position: relative;
+  border-radius: 24px;
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.8) 0%, rgba(56, 189, 248, 0.4) 50%, rgba(220, 38, 38, 0.7) 100%);
+  box-shadow: 0 0 35px rgba(220, 38, 38, 0.35), 0 25px 60px -15px rgba(0, 0, 0, 0.8);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  aspect-ratio: 4/5;
-  max-height: 600px;
+  z-index: 1;
 }
 
-.hero-image {
+.frame-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: 10px;
+  left: 10px;
+  border-top: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+}
+
+.corner-tr {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+}
+
+.corner-bl {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid #FFFFFF;
+  border-left: 2px solid #FFFFFF;
+}
+
+.corner-br {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 2px solid #FFFFFF;
+  border-right: 2px solid #FFFFFF;
+}
+
+.stage-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4/4.5;
+  background-color: #0B192C;
+}
+
+.stage-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform-origin: center;
+  transform: scale(1.03);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-image-overlay {
+.neon-border-frame:hover .stage-image {
+  transform: scale(1.07);
+}
+
+.stage-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(3, 7, 18, 0.85) 0%,
+    rgba(3, 7, 18, 0.2) 60%,
+    transparent 100%
+  );
+}
+
+.stage-scanline {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top right, rgba(11, 29, 58, 0.4), transparent);
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.8), transparent);
+  box-shadow: 0 0 12px #EF4444;
+  opacity: 0.6;
+  animation: scanline 4s linear infinite;
 }
 
-.hero-graphic-1 {
+@keyframes scanline {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.8; }
+  85% { opacity: 0.8; }
+  100% { transform: translateY(400px); opacity: 0; }
+}
+
+/* Floating Glassmorphic Badges */
+.stage-glass-badge {
   position: absolute;
-  bottom: -20px;
-  left: -20px;
-  width: 100px;
-  height: 100px;
-  background-color: var(--accent-red);
-  z-index: -1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  box-shadow: 0 25px 45px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(220, 38, 38, 0.15);
+  z-index: 4;
+  white-space: nowrap;
 }
 
-.hero-graphic-2 {
+.badge-top-left {
+  top: 35px;
+  left: -35px;
+}
+
+.badge-bottom-right {
+  bottom: 35px;
+  right: -30px;
+}
+
+.badge-glow-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-navy {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-svg-navy {
+  color: #38BDF8;
+}
+
+.icon-red {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.badge-svg-red {
+  color: #EF4444;
+}
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-headline {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.badge-detail {
+  font-size: 11px;
+  font-weight: 500;
+  color: #94A3B8;
+  margin-top: 3px;
+}
+
+.stage-ambient-aura {
   position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 150px;
-  height: 150px;
-  border: 4px solid var(--primary-navy);
-  z-index: -1;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.25) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
 }
 
-@media (max-width: 992px) {
-  .hero {
-    padding: 140px 0 80px;
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .cinematic-hero {
+    padding: 150px 0 80px;
     min-height: auto;
   }
-  
-  .hero-container {
-    flex-direction: column;
+
+  .hero-layout-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
     text-align: center;
   }
 
-  .hero-content {
+  .hero-narrative {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .text-lg {
-    margin: 0 auto 32px;
+  .hero-cinema-sub {
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .hero-buttons {
+  .hero-actions-group {
     justify-content: center;
   }
 
-  .hero-visual {
-    width: 100%;
-    max-width: 500px;
+  .cinema-metrics-bar {
     margin: 0 auto;
+  }
+
+  .hero-stage-wrapper {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .badge-top-left {
+    left: -10px;
+  }
+
+  .badge-bottom-right {
+    right: -10px;
   }
 }
 
-@media (max-width: 576px) {
-  .hero-buttons {
-    flex-direction: column;
+@media (max-width: 640px) {
+  .hero-cinema-heading {
+    font-size: 34px;
   }
-  
-  .btn {
+
+  .hero-actions-group {
+    flex-direction: column;
     width: 100%;
   }
+
+  .hero-btn-glow,
+  .hero-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cinema-metrics-bar {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  .metric-divider-dot {
+    display: none;
+  }
+
+  .badge-top-left {
+    top: 15px;
+    left: 5px;
+    padding: 10px 14px;
+  }
+
+  .badge-bottom-right {
+    bottom: 15px;
+    right: 5px;
+    padding: 10px 14px;
+  }
+
+  .badge-glow-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .badge-headline {
+    font-size: 12px;
+  }
+
+  .badge-detail {
+    font-size: 10px;
+  }
 }
+
+/* Light / Bright Mode Styles for Hero */
+[data-theme="light"] .cinematic-hero {
+  background: radial-gradient(circle at 10% 20%, #FFFFFF 0%, #F8FAFC 50%, #F1F5F9 100%);
+}
+
+[data-theme="light"] .word-white {
+  color: #0F172A;
+  text-shadow: none;
+}
+
+[data-theme="light"] .hero-cinema-sub {
+  color: #475569;
+}
+
+[data-theme="light"] .cinema-metrics-bar {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .metric-pill {
+  color: #1E293B;
+}
+
+[data-theme="light"] .metric-divider-dot {
+  background-color: rgba(15, 23, 42, 0.15);
+}
+
+[data-theme="light"] .stage-glass-badge {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .badge-headline {
+  color: #0F172A;
+}
+
+[data-theme="light"] .badge-detail {
+  color: #64748B;
+}
+
+[data-theme="light"] .stage-ambient-aura {
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.12) 0%, transparent 70%);
+}
+

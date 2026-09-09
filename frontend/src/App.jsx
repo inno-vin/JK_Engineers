@@ -14,25 +14,32 @@ import './index.css';
 
 function App() {
   useEffect(() => {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
+    // Only use Intersection Observer fallback if the browser doesn't support native CSS scroll-driven animations
+    if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-up');
-    fadeElements.forEach(el => observer.observe(el));
+      const fadeElements = document.querySelectorAll('.fade-up');
+      fadeElements.forEach(el => observer.observe(el));
 
-    return () => observer.disconnect();
+      return () => observer.disconnect();
+    } else {
+      // For browsers with native support, ensure they don't get stuck hidden 
+      // if they somehow bypass the animation timeline (though CSS should handle this)
+      const fadeElements = document.querySelectorAll('.fade-up');
+      fadeElements.forEach(el => el.classList.add('native-scroll-anim'));
+    }
   }, []);
 
   return (

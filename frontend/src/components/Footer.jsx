@@ -1,57 +1,85 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer section-navy">
+    <footer className="cinema-footer">
       <div className="container">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            {/* Replace with actual logo image later */}
-            <div className="footer-logo-placeholder">
-              <span style={{ fontWeight: 800, fontSize: '24px' }}>JK ENGINEERS</span>
-            </div>
+        <div className="footer-layout-grid">
+          {/* Brand Column */}
+          <div className="footer-brand-col">
+            <a href="#home" className="footer-brand-link">
+              <div className="footer-logo-badge">
+                <img
+                  src="/assets/logo-transparent.png"
+                  alt="JK Engineers & Enterprises"
+                  className="footer-logo"
+                  onError={(e) => {
+                    e.target.src = '/assets/logo.png';
+                  }}
+                />
+              </div>
+              <div className="footer-brand-text">
+                <span className="footer-name"><span>JK</span> ENGINEERS</span>
+                <span className="footer-tag">ENTERPRISES</span>
+              </div>
+            </a>
+
             <p className="footer-tagline">
-              Engineering Excellence • Innovation • Reliability
+              Engineering Excellence • Turnkey Execution • Certified Supply
             </p>
-            <p className="footer-desc">
-              Premium engineering design, consultancy, turnkey project execution and industrial supply services.
+            <p className="footer-summary">
+              Delivering high-precision engineering design and consultancy, end-to-end turnkey project execution, and certified industrial supplies across India.
             </p>
           </div>
 
-          <div className="footer-links-col">
-            <h4 className="footer-heading">Quick Links</h4>
-            <ul className="footer-links">
+          {/* Navigation Links Column */}
+          <div className="footer-nav-col">
+            <h4 className="footer-col-heading">Navigation</h4>
+            <ul className="footer-links-list">
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
+              <li><a href="#services">Services & Solutions</a></li>
               <li><a href="#turnkey">Turnkey Projects</a></li>
-              <li><a href="#industries">Industries</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#industries">Industries We Serve</a></li>
+              <li><a href="#contact">Contact & Inquiries</a></li>
             </ul>
           </div>
 
-          <div className="footer-contact">
-            <h4 className="footer-heading">Contact Us</h4>
-            <ul className="footer-contact-list">
-              <li>
-                <MapPin size={18} />
-                <span>Plot No 28, Mythri Lahari, Pedda Amberpet, Hyderabad – 501505</span>
+          {/* Quick Contact Column */}
+          <div className="footer-contact-col">
+            <h4 className="footer-col-heading">Headquarters & Contact</h4>
+            <ul className="footer-contact-items">
+              <li className="f-contact-item">
+                <MapPin size={18} className="f-icon" />
+                <span>
+                  Plot No 28, Mythri Lahari, Pasumamula Road, Pedda Amberpet,
+                  Hayathnagar, Rangareddy, Hyderabad – 501505
+                </span>
               </li>
-              <li>
-                <Phone size={18} />
-                <a href="tel:8008132387">8008132387</a>
+              <li className="f-contact-item">
+                <Phone size={18} className="f-icon" />
+                <a href="tel:8008132387">+91 8008132387</a>
               </li>
-              <li>
-                <Mail size={18} />
-                <a href="mailto:info@jkengineers.com">info@jkengineers.com</a> {/* Placeholder */}
+              <li className="f-contact-item">
+                <Mail size={18} className="f-icon" />
+                <a href="mailto:kandhikanti@yahoo.co.in">kandhikanti@yahoo.co.in</a>
+              </li>
+              <li className="f-contact-item">
+                <div className="gst-mini-tag">GSTIN</div>
+                <span className="mono-text">36BOLPK1512D2ZB</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="footer-bottom">
+        {/* Footer Bottom Strip */}
+        <div className="footer-bottom-strip">
           <p>&copy; 2026 JK Engineers & Enterprises. All Rights Reserved.</p>
+          <div className="footer-bottom-status">
+            <span className="status-live-dot"></span>
+            <span>Operations & Inquiries Active</span>
+          </div>
         </div>
       </div>
     </footer>

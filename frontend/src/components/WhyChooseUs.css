@@ -1,77 +1,154 @@
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.feature-block {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 32px;
-  background-color: var(--bg-white);
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+/* Why Choose Us Cinema Section */
+.why-choose-cinema {
   position: relative;
+  background: linear-gradient(180deg, #030712 0%, #0B192C 60%, #030712 100%);
+  padding: 130px 0;
   overflow: hidden;
 }
 
-.feature-block::before {
-  content: '';
+.why-ambient-glow {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 0;
-  background-color: var(--accent-red);
-  transition: height var(--transition-smooth);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.12) 0%, transparent 70%);
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.feature-block:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.why-header {
+  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.feature-block:hover::before {
-  height: 100%;
+.why-title {
+  color: #FFFFFF;
+  margin-bottom: 16px;
 }
 
-.feature-number {
-  font-size: 48px;
-  font-weight: 800;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(11, 29, 58, 0.2);
-  line-height: 1;
-  transition: all var(--transition-fast);
+.why-subtitle {
+  color: #94A3B8;
+  margin: 0 auto;
 }
 
-.feature-block:hover .feature-number {
-  color: rgba(201, 29, 34, 0.1);
-  -webkit-text-stroke: 1px var(--accent-red);
+.why-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
 }
 
-.feature-content {
-  flex: 1;
+.why-feature-card {
+  padding: 32px 26px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 22px;
+  border-color: rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
-.feature-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--primary-navy);
-  margin-bottom: 12px;
+.why-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 3;
 }
 
-.feature-desc {
-  color: var(--text-grey);
+.why-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-icon {
+  color: #EF4444;
+}
+
+.why-number {
+  font-family: var(--font-mono);
   font-size: 16px;
-  line-height: 1.5;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
 }
 
-@media (max-width: 768px) {
-  .features-grid {
-    grid-template-columns: 1fr;
+.why-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 3;
+}
+
+.why-card-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #94A3B8;
+  position: relative;
+  z-index: 3;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .why-features-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 640px) {
+  .why-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-feature-card {
+    padding: 24px 20px;
+  }
+}
+
+/* Light / Bright Mode Styles for Why Choose Us */
+[data-theme="light"] .why-choose-cinema {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 60%, #FFFFFF 100%);
+}
+
+[data-theme="light"] .why-title {
+  color: #0F172A;
+}
+
+[data-theme="light"] .why-subtitle {
+  color: #64748B;
+}
+
+[data-theme="light"] .why-feature-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .why-number {
+  color: rgba(15, 23, 42, 0.2);
+}
+
+[data-theme="light"] .why-card-title {
+  color: #0F172A;
+}
+
+[data-theme="light"] .why-card-desc {
+  color: #64748B;
+}
+

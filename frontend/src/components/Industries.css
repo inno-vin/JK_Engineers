@@ -1,62 +1,156 @@
-.industries-section {
-  background-color: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+/* Industries Cinema Section */
+.industries-cinema-section {
+  position: relative;
+  background: linear-gradient(180deg, #030712 0%, #0F172A 50%, #030712 100%);
+  padding: 130px 0;
+  overflow: hidden;
 }
 
-.industries-grid {
+.industries-ambient-glow {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, transparent 70%);
+  filter: blur(140px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.industries-header {
+  margin-bottom: 70px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.industries-title {
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+
+.industries-subtitle {
+  color: #94A3B8;
+  margin: 0 auto;
+}
+
+/* Industries Bento Grid */
+.industries-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  justify-content: center;
+  position: relative;
+  z-index: 1;
 }
 
-.industry-card {
-  background-color: var(--bg-light-grey);
-  border: 1px solid var(--border-light);
-  border-radius: 8px;
-  padding: 32px 40px;
+.industries-bento-grid > :nth-child(4) {
+  grid-column: span 1;
+}
+
+.industries-bento-grid > :nth-child(5) {
+  grid-column: span 2;
+}
+
+.industry-bento-card {
+  padding: 32px 28px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 22px;
   display: flex;
-  align-items: center;
-  gap: 20px;
-  transition: all var(--transition-fast);
-  cursor: default;
-  min-width: 300px;
-  flex: 1;
-  max-width: 400px;
+  flex-direction: column;
 }
 
-.industry-card:hover {
-  background-color: var(--bg-white);
-  border-color: var(--primary-navy);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-}
-
-.industry-icon {
-  color: var(--accent-red);
+.industry-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
-  background-color: rgba(201, 29, 34, 0.05);
-  border-radius: 50%;
-  transition: all var(--transition-fast);
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 3;
 }
 
-.industry-card:hover .industry-icon {
-  background-color: var(--accent-red);
-  color: var(--bg-white);
+.ind-icon-red {
+  color: #EF4444;
 }
 
-.industry-name {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--primary-navy);
+.ind-icon-cyan {
+  color: #38BDF8;
 }
 
-@media (max-width: 768px) {
-  .industry-card {
-    min-width: 100%;
+.industry-card-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 3;
+}
+
+.industry-card-desc {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #94A3B8;
+  position: relative;
+  z-index: 3;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .industries-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .industries-bento-grid > :nth-child(4),
+  .industries-bento-grid > :nth-child(5) {
+    grid-column: span 1;
   }
 }
+
+@media (max-width: 640px) {
+  .industries-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .industry-bento-card {
+    padding: 24px 20px;
+  }
+}
+
+/* Light / Bright Mode Styles for Industries */
+[data-theme="light"] .industries-cinema-section {
+  background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 50%, #F8FAFC 100%);
+}
+
+[data-theme="light"] .industries-title {
+  color: #0F172A;
+}
+
+[data-theme="light"] .industries-subtitle {
+  color: #64748B;
+}
+
+[data-theme="light"] .industry-bento-card {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 15px 35px -10px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .industry-icon-wrapper {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="light"] .industry-card-name {
+  color: #0F172A;
+}
+
+[data-theme="light"] .industry-card-desc {
+  color: #64748B;
+}
+
