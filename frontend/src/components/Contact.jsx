@@ -34,11 +34,10 @@ const Contact = () => {
     setFeedback('');
 
     try {
+      const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
       const apiBaseUrl = (
         import.meta.env.VITE_API_URL ||
-        (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-          ? 'http://localhost:8000'
-          : '')
+        (isLocal ? 'http://localhost:8000' : 'https://jk-engineers-w6mc-ruddy.vercel.app')
       ).replace(/\/+$/, '');
       const response = await fetch(`${apiBaseUrl}/api/contact/`, {
 

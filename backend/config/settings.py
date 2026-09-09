@@ -138,14 +138,17 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATIC_ROOT.mkdir(parents=True, exist_ok=True)
+try:
+    STATIC_ROOT.mkdir(parents=True, exist_ok=True)
+except OSError:
+    pass
 
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
     },
 }
 
@@ -169,6 +172,7 @@ if EMAIL_HOST:
 CORS_ALLOW_ALL_ORIGINS = os.environ.get('CORS_ALLOW_ALL_ORIGINS', 'True').lower() in ('true', '1', 'yes')
 CORS_ALLOWED_ORIGINS = [
     'https://jk-engineers.vercel.app',
+    'https://jk-engineers-w6mc-ruddy.vercel.app',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:3000',
@@ -181,6 +185,7 @@ if cors_allowed:
 # CSRF trusted origins (for Vercel deployment)
 CSRF_TRUSTED_ORIGINS = [
     'https://jk-engineers.vercel.app',
+    'https://jk-engineers-w6mc-ruddy.vercel.app',
     'https://*.vercel.app',
     'http://localhost:5173',
     'http://127.0.0.1:5173',
@@ -190,6 +195,7 @@ CSRF_TRUSTED_ORIGINS = [
 csrf_trusted = os.environ.get('CSRF_TRUSTED_ORIGINS', '')
 if csrf_trusted:
     CSRF_TRUSTED_ORIGINS.extend([origin.strip() for origin in csrf_trusted.split(',') if origin.strip()])
+
 
 
 # Production security headers
