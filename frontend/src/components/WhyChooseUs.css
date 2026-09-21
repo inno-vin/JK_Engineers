@@ -142,18 +142,48 @@
 @media (max-width: 1200px) {
   .why-features-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
+  .why-choose-cinema {
+    padding: 60px 0;
+  }
+
+  .why-header {
+    margin-bottom: 30px;
+  }
+
   .why-features-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .why-feature-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .why-card-title {
+    font-size: 17px;
+  }
+
+  .why-card-desc {
+    font-size: 13.5px;
   }
 }
+
+@media (max-width: 480px) {
+  .why-choose-cinema {
+    padding: 50px 0;
+  }
+
+  .why-feature-card {
+    padding: 18px 14px;
+  }
+}
+
 
 /* Light / Bright Mode Styles for Why Choose Us */
 [data-theme="light"] .why-choose-cinema {

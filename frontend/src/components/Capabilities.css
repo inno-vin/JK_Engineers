@@ -349,16 +349,47 @@
 @media (max-width: 1024px) {
   .capabilities-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
 @media (max-width: 640px) {
+  .capabilities-cinema-section {
+    padding: 60px 0;
+  }
+
+  .capabilities-header {
+    margin-bottom: 30px;
+  }
+
+  .capabilities-nav {
+    padding: 12px;
+    gap: 6px;
+    border-radius: 16px;
+  }
+
+  .cap-nav-btn {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .cap-nav-btn span {
+    font-size: 13px;
+  }
+
+  .cap-nav-icon-box {
+    width: 30px;
+    height: 30px;
+  }
+
   .capability-display-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
+    border-radius: 18px;
   }
 
   .cap-items-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .cap-display-header {
@@ -367,3 +398,23 @@
     gap: 12px;
   }
 }
+
+@media (max-width: 480px) {
+  .capabilities-cinema-section {
+    padding: 50px 0;
+  }
+
+  .capability-display-card {
+    padding: 18px 14px;
+  }
+
+  .cap-display-title {
+    font-size: 18px;
+  }
+
+  .cap-item-row {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+}
+

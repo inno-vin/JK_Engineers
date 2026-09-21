@@ -208,9 +208,14 @@
 }
 
 @media (max-width: 640px) {
+  .footer-cinema-section {
+    padding-top: 60px;
+  }
+
   .footer-layout-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
+    margin-bottom: 36px;
   }
 
   .footer-brand-col {
@@ -219,6 +224,15 @@
 
   .footer-bottom-strip {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding-top: 24px;
+    padding-bottom: 70px;
+  }
+
+  .footer-bottom-status {
+    justify-content: center;
   }
 }
+

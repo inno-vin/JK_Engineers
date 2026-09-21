@@ -161,11 +161,45 @@
 @media (max-width: 1024px) {
   .achievements-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 }
 
 @media (max-width: 640px) {
+  .achievements-cinema-section {
+    padding: 60px 0;
+  }
+
+  .achievements-header {
+    margin-bottom: 30px;
+  }
+
   .achievements-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .achievement-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .ach-title {
+    font-size: 17px;
+  }
+
+  .ach-desc {
+    font-size: 13px;
   }
 }
+
+@media (max-width: 480px) {
+  .achievements-cinema-section {
+    padding: 50px 0;
+  }
+
+  .achievement-card {
+    padding: 18px 14px;
+  }
+}
+

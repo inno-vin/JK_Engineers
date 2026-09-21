@@ -172,11 +172,46 @@
 @media (max-width: 1024px) {
   .bring-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
+  .what-we-bring-cinema-section {
+    padding: 60px 0;
+  }
+
+  .bring-header {
+    margin-bottom: 32px;
+  }
+
   .bring-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bring-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .bring-card-title {
+    font-size: 16.5px;
+  }
+
+  .bring-card-desc {
+    font-size: 13px;
+    margin-bottom: 16px;
   }
 }
+
+@media (max-width: 480px) {
+  .what-we-bring-cinema-section {
+    padding: 50px 0;
+  }
+
+  .bring-card {
+    padding: 18px 14px;
+  }
+}
+

@@ -578,12 +578,22 @@
 @media (max-width: 1024px) {
   .founder-bento-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
 @media (max-width: 640px) {
+  .founder-cinema-section {
+    padding: 60px 0;
+  }
+
+  .founder-header {
+    margin-bottom: 30px;
+  }
+
   .founder-main-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
+    border-radius: 20px;
   }
 
   .founder-id-row {
@@ -592,12 +602,29 @@
     gap: 12px;
   }
 
+  .founder-full-name {
+    font-size: 21px;
+  }
+
+  .founder-alumni-pill {
+    font-size: 12.5px;
+    padding: 8px 12px;
+    line-height: 1.4;
+  }
+
   .founder-stats-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .founder-stat-box {
+    padding: 6px 8px;
   }
 
   .founder-connect-row {
     flex-direction: column;
+    gap: 8px;
   }
 
   .btn-director-wa,
@@ -605,5 +632,36 @@
   .btn-director-email {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .stack-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
+  .timeline-head {
+    flex-wrap: wrap;
+    gap: 4px;
   }
 }
+
+@media (max-width: 480px) {
+  .founder-cinema-section {
+    padding: 50px 0;
+  }
+
+  .founder-main-card {
+    padding: 18px 14px;
+  }
+
+  .founder-full-name {
+    font-size: 19px;
+  }
+
+  .founder-bio-text {
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+}
+

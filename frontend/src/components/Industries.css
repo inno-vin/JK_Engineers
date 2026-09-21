@@ -176,18 +176,53 @@
 @media (max-width: 1024px) {
   .industries-bento-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
 @media (max-width: 640px) {
+  .industries-cinema-section {
+    padding: 60px 0;
+  }
+
+  .industries-header {
+    margin-bottom: 30px;
+  }
+
   .industries-bento-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .industry-bento-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .ind-name {
+    font-size: 19px;
+  }
+
+  .ind-tagline {
+    font-size: 12px;
+  }
+
+  .ind-desc {
+    font-size: 13px;
+    margin-bottom: 16px;
   }
 }
+
+@media (max-width: 480px) {
+  .industries-cinema-section {
+    padding: 50px 0;
+  }
+
+  .industry-bento-card {
+    padding: 18px 14px;
+  }
+}
+
 
 /* Light / Bright Mode Styles for Industries */
 [data-theme="light"] .industries-cinema-section {

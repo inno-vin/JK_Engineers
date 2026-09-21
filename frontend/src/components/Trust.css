@@ -260,19 +260,63 @@
 @media (max-width: 1024px) {
   .trust-grid-layout {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 40px;
   }
 }
 
 @media (max-width: 640px) {
+  .trust-cinema-section {
+    padding: 60px 0;
+  }
+
+  .trust-cinema-desc {
+    font-size: 15px;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .capabilities-stack {
+    gap: 12px;
+  }
+
+  .capability-item {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .bento-cards-stack {
+    gap: 16px;
+  }
+
   .bento-feature-card {
-    padding: 24px;
+    padding: 22px 18px;
+    border-radius: 20px;
   }
 
   .bento-card-title {
     font-size: 19px;
   }
+
+  .bento-card-text {
+    font-size: 14px;
+    margin-bottom: 18px;
+  }
 }
+
+@media (max-width: 480px) {
+  .trust-cinema-section {
+    padding: 50px 0;
+  }
+
+  .bento-feature-card {
+    padding: 18px 14px;
+  }
+
+  .bento-card-title {
+    font-size: 17.5px;
+  }
+}
+
 
 /* Light / Bright Mode Styles for Trust */
 [data-theme="light"] .trust-cinema-section {

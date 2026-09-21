@@ -222,17 +222,70 @@
 }
 
 @media (max-width: 860px) {
-  .timeline-spine {
-    left: 20px;
+  .timeline-cinema-section {
+    padding: 70px 0;
   }
+
+  .timeline-spine {
+    left: 18px;
+  }
+
   .timeline-node-wrapper {
     width: 100%;
     left: 0 !important;
-    padding-left: 54px;
+    padding-left: 44px;
     padding-right: 0;
+    margin-bottom: 24px;
   }
+
   .timeline-marker {
-    left: 10px !important;
+    left: 8px !important;
     right: auto !important;
   }
+
+  .timeline-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
 }
+
+@media (max-width: 480px) {
+  .timeline-cinema-section {
+    padding: 50px 0;
+  }
+
+  .timeline-spine {
+    left: 12px;
+  }
+
+  .timeline-node-wrapper {
+    padding-left: 32px;
+    margin-bottom: 20px;
+  }
+
+  .timeline-marker {
+    left: 2px !important;
+    width: 18px;
+    height: 18px;
+    top: 20px;
+  }
+
+  .timeline-card {
+    padding: 16px 14px;
+    border-radius: 16px;
+  }
+
+  .tl-company {
+    font-size: 16px;
+  }
+
+  .tl-role {
+    font-size: 12.5px;
+    margin-bottom: 8px;
+  }
+
+  .tl-desc {
+    font-size: 12.5px;
+  }
+}
+

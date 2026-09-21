@@ -276,14 +276,53 @@
 }
 
 @media (max-width: 640px) {
+  .services-cinema-section {
+    padding: 60px 0;
+  }
+
   .service-bento-card {
-    padding: 26px 20px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .service-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
   }
 
   .service-card-title {
-    font-size: 17.5px;
+    font-size: 17px;
+  }
+
+  .service-deliverables-box {
+    padding: 14px;
   }
 }
+
+@media (max-width: 480px) {
+  .services-cinema-section {
+    padding: 50px 0;
+  }
+
+  .service-bento-card {
+    padding: 18px 14px;
+  }
+
+  .card-top-bar {
+    margin-bottom: 16px;
+  }
+
+  .process-chips-wrap {
+    gap: 4px;
+  }
+
+  .chip-step {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+}
+
 
 /* Light / Bright Mode Styles for Services */
 [data-theme="light"] .services-cinema-section {

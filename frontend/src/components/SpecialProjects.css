@@ -151,6 +151,8 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .smc-client {
@@ -195,10 +197,44 @@
 }
 
 @media (max-width: 860px) {
+  .special-projects-cinema-section {
+    padding: 70px 0;
+  }
+
+  .sp-header {
+    margin-bottom: 32px;
+  }
+
   .desktop-table {
     display: none;
   }
+
   .special-cards-mobile {
     display: flex;
   }
+
+  .special-mobile-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
 }
+
+@media (max-width: 480px) {
+  .special-projects-cinema-section {
+    padding: 50px 0;
+  }
+
+  .special-mobile-card {
+    padding: 16px 14px;
+  }
+
+  .smc-client {
+    font-size: 15px;
+  }
+
+  .products-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+}
+

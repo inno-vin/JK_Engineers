@@ -206,16 +206,58 @@
 @media (max-width: 1024px) {
   .support-flow-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
   }
 }
 
 @media (max-width: 768px) {
+  .what-we-support-cinema-section {
+    padding: 70px 0;
+  }
+
+  .support-header {
+    margin-bottom: 36px;
+  }
+
   .support-summary-banner {
     flex-direction: column;
     text-align: center;
-    padding: 24px;
+    padding: 24px 20px;
+    border-radius: 18px;
+    gap: 18px;
   }
+
+  .support-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .support-flow-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .support-step-card {
+    padding: 22px 18px;
+    border-radius: 18px;
   }
 }
+
+@media (max-width: 480px) {
+  .what-we-support-cinema-section {
+    padding: 50px 0;
+  }
+
+  .support-step-card {
+    padding: 18px 14px;
+  }
+
+  .step-title {
+    font-size: 16px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+  }
+}
+

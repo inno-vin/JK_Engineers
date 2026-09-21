@@ -513,7 +513,30 @@
 }
 
 /* RESPONSIVE MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .pipeline-nodes-grid {
+    gap: 10px;
+  }
+
+  .timeline-node-card {
+    padding: 14px 8px;
+  }
+
+  .node-title {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 768px) {
+  .turnkey-cinema-section {
+    padding: 70px 0;
+  }
+
+  .turnkey-header {
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
   .desktop-pipeline-view {
     display: none !important;
   }
@@ -521,7 +544,53 @@
   .mobile-turnkey-view {
     display: block !important;
   }
+
+  .mobile-step-card {
+    padding: 20px 16px;
+  }
+
+  .mobile-step-title {
+    font-size: 17px;
+  }
+
+  .mobile-step-description {
+    font-size: 13px;
+  }
 }
+
+@media (max-width: 480px) {
+  .turnkey-cinema-section {
+    padding: 56px 0;
+  }
+
+  .turnkey-header {
+    margin-bottom: 28px;
+  }
+
+  .mobile-step-card {
+    padding: 18px 14px;
+    border-radius: 16px;
+  }
+
+  .mobile-step-card-header {
+    margin-bottom: 12px;
+  }
+
+  .mobile-step-icon-hub {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobile-step-center-orb {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mobile-step-title {
+    font-size: 16px;
+  }
+}
+
 
 /* Light / Bright Mode Styles */
 [data-theme="light"] .timeline-node-card {

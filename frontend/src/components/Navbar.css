@@ -507,14 +507,16 @@
   right: 20px;
   max-width: 1240px;
   margin: 0 auto;
-  background: rgba(3, 7, 18, 0.92);
+  background: rgba(3, 7, 18, 0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9);
   padding: 24px;
-  overflow: hidden;
+  max-height: calc(100vh - 92px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .mobile-menu-container {
@@ -617,12 +619,26 @@
     padding: 12px 14px 0;
   }
 
+  .mobile-glass-overlay {
+    top: 68px;
+    left: 14px;
+    right: 14px;
+    padding: 18px 16px;
+    border-radius: 20px;
+    max-height: calc(100vh - 84px);
+  }
+
+  .mobile-sublinks-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
   .btn-magnetic-touch span {
-    font-size: 12.5px;
+    font-size: 12px;
   }
 
   .btn-magnetic-touch {
-    padding: 8px 16px;
+    padding: 8px 14px;
   }
 
   .brand-text .brand-name {
@@ -634,3 +650,32 @@
     height: 38px;
   }
 }
+
+@media (max-width: 380px) {
+  .navbar-wrapper {
+    padding: 10px 10px 0;
+  }
+
+  .floating-navbar {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .mobile-glass-overlay {
+    left: 10px;
+    right: 10px;
+  }
+
+  .btn-magnetic-touch {
+    padding: 7px 10px;
+  }
+
+  .brand-text .brand-name {
+    font-size: 12px;
+  }
+
+  .brand-sub {
+    font-size: 8px;
+  }
+}
+
