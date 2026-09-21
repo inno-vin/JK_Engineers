@@ -270,11 +270,12 @@ const Navbar = () => {
           </MagneticButton>
 
           <button
-            className="mobile-toggle-btn"
+            className={`mobile-toggle-btn ${isMobileMenuOpen ? 'menu-open' : ''}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
+            aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+            title={isMobileMenuOpen ? 'Close Menu' : 'Open Menu'}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </nav>
