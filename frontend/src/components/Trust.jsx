@@ -109,7 +109,34 @@ const Trust = () => {
               })}
             </div>
 
-            <div style={{ marginTop: '36px' }}>
+            {/* Official Corporate Credentials Strip */}
+            <div className="trust-credentials-bar" style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '12px',
+              marginTop: '28px',
+              padding: '16px',
+              background: 'rgba(255, 255, 255, 0.03)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '14px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#94A3B8' }}>
+                <span style={{ color: '#EF4444', fontWeight: 700 }}>GSTIN:</span>
+                <strong style={{ color: '#F1F5F9', fontFamily: 'var(--font-mono)' }}>36BOLPK1512D2ZB</strong>
+              </div>
+              <div style={{ width: '1px', height: '18px', background: 'rgba(255, 255, 255, 0.1)', alignSelf: 'center' }}></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#94A3B8' }}>
+                <span style={{ color: '#38BDF8', fontWeight: 700 }}>Incorporated:</span>
+                <span style={{ color: '#F1F5F9' }}>April 2026 (Hyderabad HQ)</span>
+              </div>
+              <div style={{ width: '1px', height: '18px', background: 'rgba(255, 255, 255, 0.1)', alignSelf: 'center' }}></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: '#94A3B8' }}>
+                <span style={{ color: '#EAB308', fontWeight: 700 }}>Leadership:</span>
+                <span style={{ color: '#F1F5F9' }}>20+ Yrs Plant Experience</span>
+              </div>
+            </div>
+
+            <div style={{ marginTop: '28px' }}>
               <motion.a
                 href="#services"
                 className="btn btn-outline trust-explore-btn"

@@ -140,9 +140,7 @@
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 28px;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px rgba(220, 38, 38, 0.12);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
 }
 
 .form-header {
@@ -201,8 +199,8 @@
 }
 
 .cinematic-input:focus {
-  border-color: #EF4444;
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.35);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
   background: rgba(3, 7, 18, 0.85);
 }
 

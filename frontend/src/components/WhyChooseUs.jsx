@@ -39,7 +39,7 @@ const WhyChooseUs = () => {
   };
 
   return (
-    <section className="section why-choose-cinema">
+    <section id="why-us" className="section why-choose-cinema">
       <div className="why-ambient-glow"></div>
 
       <div className="container">

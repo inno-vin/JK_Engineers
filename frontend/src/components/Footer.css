@@ -14,8 +14,7 @@
   left: 20%;
   right: 20%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #DC2626, transparent);
-  box-shadow: 0 0 15px #DC2626;
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.4), transparent);
 }
 
 .footer-layout-grid {

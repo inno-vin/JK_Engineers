@@ -1,0 +1,118 @@
+.trust-bar-section {
+  background-color: #FFFFFF;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(11, 34, 64, 0.03);
+}
+
+.distinction-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--color-navy-50);
+  border: 1.5px solid var(--color-navy-600);
+  border-left: 6px solid var(--color-red-600);
+  border-radius: var(--radius-md);
+  padding: 22px 28px;
+  margin-bottom: 32px;
+}
+
+.distinction-icon-box {
+  background-color: #FFFFFF;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.distinction-icon {
+  color: var(--color-red-600);
+}
+
+.distinction-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
+  margin-bottom: 6px;
+}
+
+.distinction-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.distinction-body strong {
+  color: var(--color-navy-900);
+}
+
+/* Trust Grid */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.trust-item {
+  background-color: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 20px 18px;
+  transition: all 0.2s ease;
+}
+
+.trust-item:hover {
+  background-color: #FFFFFF;
+  border-color: var(--color-navy-600);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.trust-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.trust-icon-red {
+  color: var(--color-red-600);
+  flex-shrink: 0;
+}
+
+.trust-item-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
+}
+
+.trust-item-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .distinction-callout {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

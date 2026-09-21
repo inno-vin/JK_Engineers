@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, Compass, ShoppingCart, Cog, Wrench, CheckCircle2, ChevronRight, Activity } from 'lucide-react';
+import { Lightbulb, Compass, ShoppingCart, Cog, Wrench, CheckCircle2, Activity } from 'lucide-react';
 import './TurnkeyProjects.css';
 
 const steps = [
@@ -59,7 +59,7 @@ const TurnkeyProjects = () => {
 
   return (
     <section id="turnkey" className="section turnkey-cinema-section">
-      {/* Dynamic Background Blueprint & Radial Glow */}
+      {/* Background blueprint elements */}
       <div className="turnkey-ambient-glow"></div>
       <div className="turnkey-grid-pattern"></div>
 
@@ -84,95 +84,132 @@ const TurnkeyProjects = () => {
           </p>
         </motion.div>
 
-        {/* Interactive Glowing Progress Pipeline */}
-        <div className="pipeline-wrapper">
-          {/* Animated Glowing Connecting Line */}
-          <div className="pipeline-rail">
-            <div
-              className="pipeline-rail-progress"
-              style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
-            >
-              <div className="laser-beam-pulse"></div>
+        {/* DESKTOP PIPELINE VIEW (Hidden on Mobile) */}
+        <div className="desktop-pipeline-view">
+          <div className="pipeline-wrapper">
+            {/* Animated Connecting Line */}
+            <div className="pipeline-rail">
+              <div
+                className="pipeline-rail-progress"
+                style={{ width: `${((activeStep + 1) / steps.length) * 100}%` }}
+              >
+                <div className="laser-beam-pulse"></div>
+              </div>
+            </div>
+
+            {/* Interactive Steps Nodes */}
+            <div className="pipeline-nodes-grid">
+              {steps.map((step, index) => {
+                const IconComp = step.icon;
+                const isActive = activeStep === index;
+                const isPast = activeStep >= index;
+
+                return (
+                  <motion.div
+                    key={step.id}
+                    className={`timeline-node-card ${isActive ? 'node-active' : ''} ${isPast ? 'node-illuminated' : ''}`}
+                    onClick={() => setActiveStep(index)}
+                    onMouseEnter={() => setActiveStep(index)}
+                    initial={{ opacity: 0, y: 35 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ y: -4 }}
+                  >
+                    {/* Node Marker Hub */}
+                    <div className="node-marker-hub">
+                      {isActive && <div className="node-sonar-ping"></div>}
+                      <div className="node-outer-ring"></div>
+                      <div className="node-center-orb">
+                        <IconComp size={20} className="node-icon" />
+                      </div>
+                    </div>
+
+                    <div className="node-meta">
+                      <span className="node-number">{step.id}</span>
+                      <h3 className="node-title">{step.name}</h3>
+                    </div>
+
+                    {/* Indicator Line */}
+                    <div className="node-active-bar"></div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
-          {/* Interactive Steps Nodes */}
-          <div className="pipeline-nodes-grid">
+          {/* Dynamic Expanded Milestone Showcase Card */}
+          <motion.div
+            className="active-stage-showcase spotlight-card"
+            key={activeStep}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+          >
+            <div className="showcase-content">
+              <div className="showcase-header">
+                <div className="showcase-badge">
+                  <Activity size={16} className="showcase-pulse-icon" />
+                  <span>Phase {steps[activeStep].id} Active Focus</span>
+                </div>
+                <span className="showcase-phase-counter">
+                  {activeStep + 1} of {steps.length}
+                </span>
+              </div>
+
+              <div className="showcase-body">
+                <div className="showcase-text-col">
+                  <h3 className="showcase-heading">{steps[activeStep].name}</h3>
+                  <h4 className="showcase-subheading">{steps[activeStep].subtitle}</h4>
+                  <p className="showcase-desc">{steps[activeStep].description}</p>
+                </div>
+
+                <div className="showcase-deliverable-col">
+                  <span className="deliverable-label">Key Phase Deliverable:</span>
+                  <div className="deliverable-badge">
+                    <CheckCircle2 size={18} className="deliverable-icon" />
+                    <span>{steps[activeStep].deliverable}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* MOBILE PROCESS VIEW: Sequential in-place cards without detached scrolling */}
+        <div className="mobile-turnkey-view">
+          <div className="mobile-process-stack">
             {steps.map((step, index) => {
               const IconComp = step.icon;
-              const isActive = activeStep === index;
-              const isPast = activeStep >= index;
-
               return (
-                <motion.div
-                  key={step.id}
-                  className={`timeline-node-card ${isActive ? 'node-active' : ''} ${isPast ? 'node-illuminated' : ''}`}
-                  onClick={() => setActiveStep(index)}
-                  onMouseEnter={() => setActiveStep(index)}
-                  initial={{ opacity: 0, y: 35 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -6 }}
-                >
-                  {/* Glowing Node Marker */}
-                  <div className="node-marker-hub">
-                    <div className="node-outer-ring"></div>
-                    <div className="node-center-orb">
-                      <IconComp size={20} className="node-icon" />
+                <div key={step.id} className="mobile-step-card">
+                  <div className="mobile-step-card-header">
+                    <div className="mobile-step-icon-hub">
+                      <div className="mobile-step-outer-ring"></div>
+                      <div className="mobile-step-center-orb">
+                        <IconComp size={18} className="mobile-step-icon" />
+                      </div>
                     </div>
-                    {isActive && <div className="node-sonar-ping"></div>}
+                    <div className="mobile-step-header-meta">
+                      <span className="mobile-step-pill">Phase {step.id}</span>
+                      <span className="mobile-step-counter">0{index + 1} / 06</span>
+                    </div>
                   </div>
-
-                  <div className="node-meta">
-                    <span className="node-number">{step.id}</span>
-                    <h3 className="node-title">{step.name}</h3>
+                  <h3 className="mobile-step-title">{step.name}</h3>
+                  <h4 className="mobile-step-subtitle">{step.subtitle}</h4>
+                  <p className="mobile-step-description">{step.description}</p>
+                  <div className="mobile-step-deliverable">
+                    <span className="mobile-deliv-label">Deliverable:</span>
+                    <div className="mobile-deliv-value">
+                      <CheckCircle2 size={16} className="deliverable-icon" />
+                      <span>{step.deliverable}</span>
+                    </div>
                   </div>
-
-                  {/* Indicator Dot */}
-                  <div className="node-active-bar"></div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
         </div>
-
-        {/* Dynamic Expanded Milestone Showcase Card */}
-        <motion.div
-          className="active-stage-showcase spotlight-card"
-          key={activeStep}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-        >
-          <div className="showcase-content">
-            <div className="showcase-header">
-              <div className="showcase-badge">
-                <Activity size={16} className="showcase-pulse-icon" />
-                <span>Phase {steps[activeStep].id} Active Focus</span>
-              </div>
-              <span className="showcase-phase-counter">
-                {activeStep + 1} of {steps.length}
-              </span>
-            </div>
-
-            <div className="showcase-body">
-              <div className="showcase-text-col">
-                <h3 className="showcase-heading">{steps[activeStep].name}</h3>
-                <h4 className="showcase-subheading">{steps[activeStep].subtitle}</h4>
-                <p className="showcase-desc">{steps[activeStep].description}</p>
-              </div>
-
-              <div className="showcase-deliverable-col">
-                <span className="deliverable-label">Key Phase Deliverable:</span>
-                <div className="deliverable-badge">
-                  <CheckCircle2 size={18} className="deliverable-icon" />
-                  <span>{steps[activeStep].deliverable}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

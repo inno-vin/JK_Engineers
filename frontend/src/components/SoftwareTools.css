@@ -1,0 +1,209 @@
+/* Engineering Software Tools - Cinematic Styling */
+.software-tools-cinema-section {
+  position: relative;
+  background-color: var(--bg-canvas);
+  overflow: hidden;
+  padding: 90px 0;
+}
+
+.tools-header {
+  margin-bottom: 50px;
+}
+
+.tools-title {
+  margin-top: 14px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.tools-subtitle {
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--glass-shadow);
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.7);
+}
+
+.tool-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.tool-icon-box {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tool-icon-box::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 16px;
+  border: 1.5px solid currentColor;
+  opacity: 0.3;
+  animation: tool-ring-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tool-card:hover .tool-icon-box {
+  background: rgba(220, 38, 38, 0.15);
+  color: var(--accent-red-bright);
+  border-color: rgba(220, 38, 38, 0.4);
+  transform: translateY(-2px) scale(1.06);
+}
+
+.tool-card:hover .tool-icon-box::before {
+  inset: -6px;
+  opacity: 0.85;
+}
+
+.tool-icon-box svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tool-card:hover .tool-icon-box svg {
+  transform: scale(1.18) rotate(-6deg);
+}
+
+@keyframes tool-ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.08); opacity: 0.65; }
+}
+
+.tool-category-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.tool-name-row {
+  margin-bottom: 10px;
+}
+
+.tool-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.tool-tagline {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-red-bright);
+  display: block;
+  margin-top: 2px;
+}
+
+.tool-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.tool-capabilities {
+  padding-top: 14px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.tool-caps-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.tool-caps-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tool-cap-tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--glass-border);
+  transition: color 0.2s ease;
+}
+
+.tool-card:hover .tool-cap-tag {
+  color: var(--text-primary);
+}
+
+/* Light Mode */
+[data-theme="light"] .tool-card {
+  background: var(--bg-card);
+  border-color: var(--glass-border);
+}
+
+[data-theme="light"] .tool-name {
+  color: #0F172A;
+}
+
+[data-theme="light"] .tool-category-badge {
+  color: #0284C7;
+  background: rgba(2, 132, 199, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}

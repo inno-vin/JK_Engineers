@@ -33,23 +33,16 @@
 .industries-subtitle {
   color: #94A3B8;
   margin: 0 auto;
+  max-width: 750px;
 }
 
-/* Industries Bento Grid */
+/* Industries Bento Grid (3x2 Grid for all 6 target industries) */
 .industries-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 26px;
   position: relative;
   z-index: 1;
-}
-
-.industries-bento-grid > :nth-child(4) {
-  grid-column: span 1;
-}
-
-.industries-bento-grid > :nth-child(5) {
-  grid-column: span 2;
 }
 
 .industry-bento-card {
@@ -60,6 +53,15 @@
   flex-direction: column;
 }
 
+.industry-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 3;
+}
+
 .industry-icon-wrapper {
   width: 54px;
   height: 54px;
@@ -67,11 +69,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   z-index: 3;
+}
+
+.industry-index-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-dim);
 }
 
 .ind-icon-red {
@@ -87,28 +95,87 @@
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: -0.01em;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 3;
+}
+
+.industry-card-tagline {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent-red-bright);
+  margin-bottom: 12px;
+  display: block;
   position: relative;
   z-index: 3;
 }
 
 .industry-card-desc {
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.65;
   color: #94A3B8;
   position: relative;
   z-index: 3;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+/* Scope & Capabilities Tags */
+.industry-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 3;
+}
+
+.industry-cap-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #CBD5E1;
+}
+
+/* Reference Projects Box */
+.industry-projects-box {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 3;
+}
+
+.ind-projects-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+.ind-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ind-project-pill {
+  font-size: 12px;
+  color: #94A3B8;
+  line-height: 1.4;
 }
 
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .industries-bento-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .industries-bento-grid > :nth-child(4),
-  .industries-bento-grid > :nth-child(5) {
-    grid-column: span 1;
   }
 }
 
@@ -154,3 +221,12 @@
   color: #64748B;
 }
 
+[data-theme="light"] .industry-cap-tag {
+  background: rgba(15, 23, 42, 0.04);
+  border-color: rgba(15, 23, 42, 0.08);
+  color: #334155;
+}
+
+[data-theme="light"] .ind-project-pill {
+  color: #475569;
+}

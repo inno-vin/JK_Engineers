@@ -1,0 +1,221 @@
+/* What We Support - Cinematic Styling */
+.what-we-support-cinema-section {
+  position: relative;
+  background-color: var(--bg-canvas);
+  overflow: hidden;
+  padding: 110px 0;
+}
+
+.support-ambient-glow {
+  position: absolute;
+  top: 30%;
+  right: 10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 65%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.support-header {
+  margin-bottom: 56px;
+}
+
+.support-title {
+  margin-top: 14px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.support-subtitle {
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.support-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.support-step-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.support-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+.step-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 3;
+}
+
+.step-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent-red-bright);
+  background: rgba(220, 38, 38, 0.1);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.step-icon-wrap {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-icon-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 14px;
+  border: 1.5px solid currentColor;
+  opacity: 0.3;
+  animation: step-ring-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-phase-card:hover .step-icon-wrap {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.step-phase-card:hover .step-icon-wrap::before {
+  inset: -6px;
+  opacity: 0.85;
+}
+
+.step-icon-wrap svg {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-phase-card:hover .step-icon-wrap svg {
+  transform: scale(1.18) rotate(8deg);
+}
+
+@keyframes step-ring-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.08); opacity: 0.65; }
+}
+
+.icon-red {
+  color: var(--accent-red-bright);
+}
+
+.icon-cyan {
+  color: var(--accent-cyan);
+}
+
+.step-title {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+  position: relative;
+  z-index: 3;
+}
+
+.step-desc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+  position: relative;
+  z-index: 3;
+}
+
+/* Bottom Banner */
+.support-summary-banner {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(11, 25, 44, 0.95) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 20px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 2;
+}
+
+.summary-banner-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.summary-banner-text p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
+  max-width: 680px;
+}
+
+.support-cta-btn {
+  white-space: nowrap;
+}
+
+/* Light / Bright Mode Styles */
+[data-theme="light"] .support-step-card {
+  background: var(--bg-card);
+  border-color: var(--glass-border);
+}
+
+[data-theme="light"] .step-title {
+  color: #0F172A;
+}
+
+[data-theme="light"] .support-summary-banner {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+@media (max-width: 1024px) {
+  .support-flow-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .support-summary-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+  .support-flow-grid {
+    grid-template-columns: 1fr;
+  }
+}

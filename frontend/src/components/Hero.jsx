@@ -4,8 +4,8 @@ import { ArrowRight, ShieldCheck, Cpu, CheckCircle2, Zap, Layers } from 'lucide-
 import WhatsAppIcon from './WhatsAppIcon';
 import './Hero.css';
 
-const headline1 = ['Engineering', 'Solutions.'];
-const headline2 = ['Built', 'for', 'Industry.'];
+const headline1 = ["LET'S", 'BUILD', 'RELIABLE'];
+const headline2 = ['ENGINEERING', 'SOLUTIONS'];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -91,10 +91,10 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Status Pill */}
+          {/* Status Pill with Founded Distinction */}
           <motion.div variants={itemVariants} className="enterprise-badge">
             <span className="badge-dot"></span>
-            <span>Pioneering Industrial Engineering & Turnkey Projects</span>
+            <span>Est. April 2026 &bull; Backed by 20+ Years Founder Leadership</span>
           </motion.div>
 
           {/* Staggered Text-Reveal Headline */}
@@ -119,34 +119,53 @@ const Hero = () => {
             </span>
           </h1>
 
-          {/* Subtitle */}
+          {/* Core Supporting Text */}
+          <motion.div variants={itemVariants} className="hero-supporting-pillars">
+            <span>Engineering Design</span>
+            <span className="pillar-dot">&bull;</span>
+            <span>Turnkey Projects</span>
+            <span className="pillar-dot">&bull;</span>
+            <span>Industrial Supplies</span>
+          </motion.div>
+
+          {/* Subtitle / Positioning Quote */}
           <motion.p variants={itemVariants} className="hero-cinema-sub">
-            JK Engineers & Enterprises delivers high-precision engineering design and consultancy,
-            end-to-end turnkey project execution, and certified industrial materials & chemical supplies.
+            “Practical engineering expertise from concept to commissioning.” Providing process engineering, project management, turnkey execution, qualification &amp; validation, and industrial material supply for pharma, API, biotech, and chemical plants.
           </motion.p>
 
           {/* Action CTAs */}
           <motion.div variants={itemVariants} className="hero-actions-group">
             <motion.a
-              href="#services"
+              href="#contact"
               className="btn btn-primary hero-btn-glow"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <span>Explore Our Services</span>
+              <span>Discuss Your Project</span>
               <ArrowRight size={18} className="btn-arrow" />
             </motion.a>
 
             <motion.a
-              href="https://wa.me/918008132387?text=Hello%20JK%20Engineers%20%26%20Enterprises%2C%20I%20would%20like%20to%20know%20more%20about%20your%20engineering%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-outline hero-whatsapp-btn"
+              href="#services"
+              className="btn btn-outline hero-explore-btn"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.98 }}
             >
-              <WhatsAppIcon size={22} variant="badge" className="whatsapp-icon" />
-              <span>Chat on WhatsApp</span>
+              <Layers size={18} />
+              <span>Explore Our Services</span>
+            </motion.a>
+
+            <motion.a
+              href="https://wa.me/918008132387?text=Hello%20JK%20Engineers%2C%20I%20would%20like%20to%20discuss%20an%20engineering%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-wa-pill"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.96 }}
+              title="Chat with Janaki Ram on WhatsApp"
+            >
+              <WhatsAppIcon size={20} />
+              <span>WhatsApp</span>
             </motion.a>
           </motion.div>
 
@@ -154,17 +173,17 @@ const Hero = () => {
           <motion.div variants={itemVariants} className="cinema-metrics-bar">
             <div className="metric-pill">
               <CheckCircle2 size={16} className="metric-accent-red" />
-              <span>Turnkey Execution</span>
+              <span>20+ Yrs Founder Exp</span>
             </div>
             <div className="metric-divider-dot"></div>
             <div className="metric-pill">
               <ShieldCheck size={16} className="metric-accent-red" />
-              <span>ISO Quality Standards</span>
+              <span>80+ Delivered Projects</span>
             </div>
             <div className="metric-divider-dot"></div>
             <div className="metric-pill">
               <Cpu size={16} className="metric-accent-red" />
-              <span>Technical Precision</span>
+              <span>₹100+ Cr Responsibility</span>
             </div>
           </motion.div>
         </motion.div>
@@ -218,8 +237,8 @@ const Hero = () => {
                 <ShieldCheck size={20} className="badge-svg-navy" />
               </div>
               <div className="badge-info">
-                <span className="badge-headline">Reliability Built-in</span>
-                <span className="badge-detail">Certified Industrial Standards</span>
+                <span className="badge-headline">20+ Years Expertise</span>
+                <span className="badge-detail">Pharma, API &amp; Biotech Focus</span>
               </div>
             </motion.div>
 
@@ -235,8 +254,8 @@ const Hero = () => {
                 <Zap size={20} className="badge-svg-red" />
               </div>
               <div className="badge-info">
-                <span className="badge-headline">Concept to Commissioning</span>
-                <span className="badge-detail">Full Lifecycle Project Delivery</span>
+                <span className="badge-headline">₹100+ Cr Project Core</span>
+                <span className="badge-detail">Concept to Commissioning</span>
               </div>
             </motion.div>
 

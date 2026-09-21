@@ -1,38 +1,28 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { PenTool, Settings, Beaker, ArrowRight, CheckCircle2, ArrowDown } from 'lucide-react';
+import { 
+  Compass, 
+  Briefcase, 
+  Layers, 
+  FileCheck2, 
+  ShoppingBag, 
+  Boxes, 
+  CheckCircle2, 
+  ArrowRight 
+} from 'lucide-react';
+import { SERVICES } from '../data/companyData';
 import './Services.css';
 
-const services = [
-  {
-    id: 1,
-    title: 'ENGINEERING DESIGN & CONSULTANCY',
-    description: 'Specialized engineering design and high-precision consultancy solutions for pharmaceutical, process, and industrial plants.',
-    icon: PenTool,
-    accent: 'red',
-    features: ['Engineering Design & 3D Modeling', 'Technical & Regulatory Consultancy', 'Industrial Project Planning', 'Civil & Mechanical Integration'],
-    tag: 'Consultancy'
-  },
-  {
-    id: 2,
-    title: 'TURNKEY PROJECTS',
-    description: 'Comprehensive, end-to-end industrial project execution support spanning feasibility study all the way through client commissioning.',
-    icon: Settings,
-    accent: 'cyan',
-    process: ['Concept', 'Design', 'Execution', 'Installation', 'Commissioning'],
-    tag: 'Full Lifecycle'
-  },
-  {
-    id: 3,
-    title: 'ENGINEERING MATERIALS & CHEMICAL SUPPLY',
-    description: 'Certified, traceable supply of high-grade engineering materials, industrial alloys, and critical process chemicals.',
-    icon: Beaker,
-    accent: 'red',
-    features: ['Specialized Industrial Chemicals', 'High-Grade Stainless & Alloy Steels', 'Piping, Valves & Instrumentation', 'Certified Mill Testing & QA'],
-    tag: 'Certified Supply'
-  }
-];
+const iconMap = {
+  Compass: Compass,
+  Briefcase: Briefcase,
+  Layers: Layers,
+  FileCheck2: FileCheck2,
+  ShoppingBag: ShoppingBag,
+  Boxes: Boxes
+};
 
-const Services = () => {
+export default function Services() {
   const handleCardMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
@@ -56,22 +46,22 @@ const Services = () => {
         >
           <div className="enterprise-badge">
             <span className="badge-dot"></span>
-            <span>Core Capabilities</span>
+            <span>Comprehensive Solutions</span>
           </div>
           <h2 className="heading-lg services-title">
-            Integrated Engineering Solutions.<br />
-            <span className="services-title-highlight">Engineered for Heavy Industry.</span>
+            Our Core Services.<br />
+            <span className="services-title-highlight">Engineered for Regulated &amp; Heavy Industry.</span>
           </h2>
           <p className="text-lg services-subtitle">
-            Delivering cross-disciplinary expertise to meet rigorous industrial specifications with precision and dependability.
+            Six integrated service domains delivering complete lifecycle engineering support from thermodynamic concept to validated plant delivery.
           </p>
         </motion.div>
 
-        {/* Bento Grid Services Cards */}
+        {/* Bento Grid Services Cards (All 6 Services) */}
         <div className="services-bento-grid">
-          {services.map((service, index) => {
-            const IconComp = service.icon;
-            const isRed = service.accent === 'red';
+          {SERVICES.map((service, index) => {
+            const IconComp = iconMap[service.icon] || Compass;
+            const isRed = index % 2 === 0;
 
             return (
               <motion.div
@@ -83,7 +73,7 @@ const Services = () => {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{
                   duration: 0.7,
-                  delay: index * 0.18,
+                  delay: index * 0.12,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 whileHover={{
@@ -94,40 +84,31 @@ const Services = () => {
               >
                 <div className="card-top-bar">
                   <div className={`service-icon-box ${isRed ? 'icon-box-red' : 'icon-box-cyan'}`}>
-                    <IconComp size={26} />
+                    <IconComp size={24} />
                   </div>
-                  <span className="service-tag">{service.tag}</span>
+                  <span className="service-code-badge">{service.code}</span>
                 </div>
 
                 <h3 className="service-card-title">{service.title}</h3>
-                <p className="service-card-desc">{service.description}</p>
+                <p className="service-card-desc">{service.shortDesc}</p>
 
-                {service.features && (
+                {service.details && (
                   <ul className="service-feature-checklist">
-                    {service.features.map((feature, i) => (
+                    {service.details.map((detail, i) => (
                       <li key={i} className="feature-item">
-                        <CheckCircle2 size={16} className={isRed ? 'check-red' : 'check-cyan'} />
-                        <span>{feature}</span>
+                        <CheckCircle2 size={15} className={isRed ? 'check-red' : 'check-cyan'} />
+                        <span>{detail}</span>
                       </li>
                     ))}
                   </ul>
                 )}
 
-                {service.process && (
-                  <div className="service-process-flow">
-                    <span className="process-label">Execution Flow:</span>
-                    <div className="process-chips-wrap">
-                      {service.process.map((step, i) => (
-                        <div key={i} className="chip-step-group">
-                          <span className="chip-step">{step}</span>
-                          {i < service.process.length - 1 && (
-                            <ArrowRight size={14} className="chip-arrow" />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                <div className="service-card-action">
+                  <a href="#contact" className="service-discuss-link">
+                    <span>Inquire for {service.title}</span>
+                    <ArrowRight size={14} />
+                  </a>
+                </div>
               </motion.div>
             );
           })}
@@ -135,6 +116,4 @@ const Services = () => {
       </div>
     </section>
   );
-};
-
-export default Services;
+}
